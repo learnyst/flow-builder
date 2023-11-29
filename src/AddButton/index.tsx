@@ -6,6 +6,7 @@ import {
   getRegisterNode,
   getIsStartNode,
   getIsEndNode,
+  getIsHiddenNode,
   getIsBranchNode,
   getIsConditionNode,
 } from '../utils';
@@ -58,6 +59,7 @@ const AddNodeButton: React.FC<IProps> = (props) => {
     (item) =>
       !getIsStartNode(registerNodes, item.type) &&
       !getIsEndNode(registerNodes, item.type) &&
+      !getIsHiddenNode(item.hidden) &&
       !getIsConditionNode(registerNodes, item.type) &&
       (Array.isArray(addableNodeTypes)
         ? addableNodeTypes.includes(item.type)

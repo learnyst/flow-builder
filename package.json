@@ -1,6 +1,6 @@
 {
-  "name": "react-flow-builder",
-  "version": "2.5.0",
+  "name": "@learnyst/react-flow-builder",
+  "version": "2.5.1",
   "keywords": [
     "flow",
     "builder",
@@ -27,8 +27,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bytedance/flow-builder"
+    "url": "https://github.com/learnyst/flow-builder"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/learnyst"
+  },  
   "gitHooks": {
     "pre-commit": "lint-staged"
   },

@@ -23,6 +23,8 @@ export const getIsStartNode = (registerNodes: IRegisterNode[], type?: string) =>
 export const getIsEndNode = (registerNodes: IRegisterNode[], type?: string) =>
   registerNodes.find((item) => item.type === type)?.isEnd;
 
+export const getIsHiddenNode = (hidden: boolean) => !!hidden;
+
 export const getIsLoopNode = (registerNodes: IRegisterNode[], type?: string) =>
   registerNodes.find((item) => item.type === type)?.isLoop;
 

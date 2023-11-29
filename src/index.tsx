@@ -42,6 +42,7 @@ export type AbstractNodeType =
 export interface IRegisterNode {
   type: string;
   name: string;
+  hidden: boolean;
   conditionNodeType?: string;
   conditionMaxNum?: number;
   addIcon?: React.ReactNode;
