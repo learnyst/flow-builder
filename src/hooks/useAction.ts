@@ -69,7 +69,19 @@ const useAction = () => {
 
     if (getIsConditionNode(registerNodes, newNodeType)) {
       node.children = node.children || [];
-      node.children.push(newNode);
+
+      // always push node before default node
+      if (node.children.length > 0) {
+        let lastNode = node.children[node.children.length - 1];
+        if (lastNode.isDefaultConditionNode) {
+          node.children[node.children.length - 1] = newNode;
+          node.children.push(lastNode);
+        } else {
+          node.children.push(newNode);
+        }
+      } else {
+        node.children.push(newNode);
+      }
     } else if (getIsConditionNode(registerNodes, node.type)) {
       node.children = node.children || [];
       node.children.unshift(newNode);
