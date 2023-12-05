@@ -90,6 +90,12 @@ const FlowBuilder = forwardRef<IFlowBuilderMethod, IFlowBuilderProps>(
 
       const children = get(nodes, (collection as string).split(','))?.children;
 
+      // Dont allow any node to put after default node
+      const numOfChildren = children.length;
+      if (newIndex === numOfChildren - 1 || oldIndex === numOfChildren - 1) {
+        return;
+      }
+
       exchangeNodes(children, oldIndex, newIndex);
 
       handleChange([...nodes], 'condition-sort');
