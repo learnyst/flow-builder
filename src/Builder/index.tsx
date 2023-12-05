@@ -149,8 +149,8 @@ const Builder = forwardRef<IFlowBuilderMethod>((props, ref) => {
       const startNodeType = registerNodes.find((item) => item.isStart)?.type;
       const endNodeType = registerNodes.find((item) => item.isEnd)?.type;
       defaultNodes = [
-        createNewNode(registerNodes, startNodeType, createUuid),
-        createNewNode(registerNodes, endNodeType, createUuid),
+        createNewNode(registerNodes, startNodeType, createUuid, false),
+        createNewNode(registerNodes, endNodeType, createUuid, false),
       ];
       onChange(defaultNodes, 'init-builder');
     }
@@ -185,7 +185,7 @@ const Builder = forwardRef<IFlowBuilderMethod>((props, ref) => {
       {DrawerComponent ? (
         <DrawerComponent
           title={drawerTitle || 'Configuration'}
-          width={480}
+          width={600}
           destroyOnClose
           maskClosable={false}
           visible={!!selectedNode}

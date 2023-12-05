@@ -16,7 +16,7 @@ const RemoveButton: React.FC = () => {
 
   const registerNode = getRegisterNode(registerNodes, node.type);
 
-  return !readonly && !registerNode?.customRemove && PopconfirmComponent ? (
+  return !readonly && !node?.customRemove && PopconfirmComponent ? (
     <PopconfirmComponent
       title={
         registerNode?.removeConfirmTitle || 'Are you sure to remove this node?'

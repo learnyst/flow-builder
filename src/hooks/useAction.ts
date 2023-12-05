@@ -57,7 +57,12 @@ const useAction = () => {
 
     const registerNode = getRegisterNode(registerNodes, newNodeType);
 
-    const newNode = createNewNode(registerNodes, newNodeType, createUuid);
+    const newNode = createNewNode(
+      registerNodes,
+      newNodeType,
+      createUuid,
+      false,
+    );
     if (!newNode) {
       return;
     }
@@ -100,7 +105,12 @@ const useAction = () => {
 
     const registerNode = getRegisterNode(registerNodes, newNodeType);
 
-    const newNode = createNewNode(registerNodes, newNodeType, createUuid);
+    const newNode = createNewNode(
+      registerNodes,
+      newNodeType,
+      createUuid,
+      false,
+    );
     if (!newNode) {
       return;
     }

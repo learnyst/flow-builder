@@ -84,6 +84,7 @@ export const createNewNode = (
   registerNodes: IRegisterNode[],
   type?: string,
   customCreateUuid = createUuid,
+  overrideCustomRemove?: boolean,
 ) => {
   const registerNode = getRegisterNode(registerNodes, type);
 
@@ -102,11 +103,13 @@ export const createNewNode = (
             registerNodes,
             registerNode.conditionNodeType,
             customCreateUuid,
+            true,
           ),
           createNewNode(
             registerNodes,
             registerNode.conditionNodeType,
             customCreateUuid,
+            false,
           ),
         ],
         ...initialNodeData,
@@ -123,6 +126,7 @@ export const createNewNode = (
     type: registerNode.type,
     name: registerNode.name,
     ...extraProps,
+    customRemove: overrideCustomRemove ? true : registerNode.customRemove,
   };
 };
 
