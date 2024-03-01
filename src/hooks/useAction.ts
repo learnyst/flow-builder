@@ -49,7 +49,11 @@ const useAction = () => {
     }
   };
 
-  const addNode = (_node: INode | string, _newNodeType?: string) => {
+  const addNode = (
+    _node: INode | string,
+    _newNodeType?: string,
+    defaultData?: any,
+  ) => {
     // one param: new type
     // two params: node, new type
     const node = (!!_newNodeType ? _node : currentNode) as INode;
@@ -61,6 +65,8 @@ const useAction = () => {
       registerNodes,
       newNodeType,
       createUuid,
+      false,
+      defaultData,
       false,
     );
     if (!newNode) {
@@ -121,6 +127,8 @@ const useAction = () => {
       registerNodes,
       newNodeType,
       createUuid,
+      false,
+      null,
       false,
     );
     if (!newNode) {

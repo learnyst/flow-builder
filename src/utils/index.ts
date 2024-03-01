@@ -85,6 +85,8 @@ export const createNewNode = (
   type?: string,
   customCreateUuid = createUuid,
   isDefaultConditionNode?: boolean,
+  defaultData?: any,
+  isAutoAddedCondition?: boolean,
 ) => {
   const registerNode = getRegisterNode(registerNodes, type);
 
@@ -104,11 +106,15 @@ export const createNewNode = (
             registerNode.conditionNodeType,
             customCreateUuid,
             false,
+            null,
+            true,
           ),
           createNewNode(
             registerNodes,
             registerNode.conditionNodeType,
             customCreateUuid,
+            true,
+            null,
             true,
           ),
         ],
@@ -128,6 +134,8 @@ export const createNewNode = (
     ...extraProps,
     customRemove: isDefaultConditionNode ? true : registerNode.customRemove,
     isDefaultConditionNode: isDefaultConditionNode,
+    data: defaultData ? { ...defaultData } : null,
+    isAutoAddedCondition: !!isAutoAddedCondition,
   };
 };
 

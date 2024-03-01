@@ -149,8 +149,22 @@ const Builder = forwardRef<IFlowBuilderMethod>((props, ref) => {
       const startNodeType = registerNodes.find((item) => item.isStart)?.type;
       const endNodeType = registerNodes.find((item) => item.isEnd)?.type;
       defaultNodes = [
-        createNewNode(registerNodes, startNodeType, createUuid, false),
-        createNewNode(registerNodes, endNodeType, createUuid, false),
+        createNewNode(
+          registerNodes,
+          startNodeType,
+          createUuid,
+          false,
+          null,
+          false,
+        ),
+        createNewNode(
+          registerNodes,
+          endNodeType,
+          createUuid,
+          false,
+          null,
+          false,
+        ),
       ];
       onChange(defaultNodes, 'init-builder');
     }
