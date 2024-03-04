@@ -127,6 +127,14 @@ export const createNewNode = (
       }
     : initialNodeData;
 
+  if (type === 'condition-branch') {
+    defaultData = {
+      stepId: new Date().getTime(),
+      stepTitle: 'branch',
+      saved: true,
+    };
+  }
+
   return {
     id: customCreateUuid(type),
     type: registerNode.type,
